@@ -30,8 +30,8 @@ def cpu(id, value, period=100000):
 def memory(id, value, cores):
     if value < 0 or value > NUM_COS_MBA-1:
         raise ValueError('Invalid Value!')
-    current_script = os.path.realpath(__file__)
-    os.system('echo %s | sudo -S python %s' % (SUDO_PASSWORD, current_script))
+   # current_script = os.path.realpath(__file__)
+    #os.system('echo %s | sudo -S python %s' % (SUDO_PASSWORD, current_script))
 
     logging.info('memory - id: ' + id + ' - delta: ' + value)
     os.system('sudo ./scripts/association_app ' + value + ' '.join(cores))
@@ -39,8 +39,8 @@ def memory(id, value, cores):
 def llc(id, value, cores):
     if value < 0 or value > NUM_COS_MBA-1:
         raise ValueError('Invalid Value!')
-    current_script = os.path.realpath(__file__)
-    os.system('echo %s | sudo -S python %s' % (SUDO_PASSWORD, current_script))
+   # current_script = os.path.realpath(__file__)
+   # os.system('echo %s | sudo -S python %s' % (SUDO_PASSWORD, current_script))
 
     logging.info('llc - id: ' + id + ' - delta: ' + value)
     os.system('sudo ./scripts/association_app ' + value + ' '.join(cores))
@@ -49,7 +49,7 @@ def network(id, value):
     if value < 0 or value > NUM_NET_CLS-1:
         raise ValueError('Invalid Value!')
     current_script = os.path.realpath(__file__)
-    os.system('echo %s | sudo -S python %s' % (SUDO_PASSWORD, current_script))
+   # os.system('echo %s | sudo -S python %s' % (SUDO_PASSWORD, current_script))
 
     logging.info('network - id: ' + id + ' - delta: ' + value)
     path = '/sys/fs/cgroup/net_cls/kubepods/guaranteed/pod' + id + '/net_cls.classid'
